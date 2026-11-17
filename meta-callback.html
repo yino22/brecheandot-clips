@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRECHACLIPS - Conexion con Meta</title>
+<style>
+  body { background:#0a0d10; color:#e8edf2; font-family: Arial, Helvetica, sans-serif; margin:0; padding:40px 20px; text-align:center; }
+  .card { max-width:520px; margin:60px auto; background:#11161c; border:1px solid #1f2833; border-radius:12px; padding:32px 24px; }
+  h1 { font-size:22px; margin:0 0 12px; }
+  p { color:#8b96a3; line-height:1.5; }
+  .ok { color:#22c55e; }
+</style>
+<script>
+  // Puente de conexion: Meta redirige aqui tras el inicio de sesion (HTTPS)
+  // y esta pagina entrega el codigo a la aplicacion local en la PC del creador.
+  (function () {
+    var q = window.location.search || "";
+    if (q.indexOf("code=") !== -1 || q.indexOf("error") !== -1) {
+      window.location.replace("http://127.0.0.1:8765/api/meta/callback" + q);
+    }
+  })();
+</script>
+</head>
+<body>
+  <div class="card">
+    <h1>BRECHACLIPS</h1>
+    <p class="ok">Redirigiendo a tu aplicacion en tu PC...</p>
+    <p>Si no pasa nada en unos segundos, abre tu pagina <b>Clips y Flow</b> en la PC y vuelve a pulsar "Conectar Meta". Esta pagina es solo el puente seguro de conexion con Meta.</p>
+  </div>
+</body>
+</html>
